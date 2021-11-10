@@ -1,0 +1,75 @@
+.form {
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-gap: 10px;
+    margin: auto 0;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 32px 64px rgba(0, 0, 0, 0.2);
+}
+.form h2 {
+      margin-bottom: 5px;
+      text-align: center;
+      text-shadow: 0 4px 16px #fff;
+      font-size: 30px;
+      font-weight: 100;
+    }
+.form fieldset {
+      margin: 0;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.form legend {
+        padding: 5px;
+        background-color: #fff;
+        border-radius: 5px;
+        text-align: center;
+      }
+.form ul {
+        margin: 0;
+        padding: 0;
+      }
+.form ul li {
+          display: grid;
+          align-items: center;
+          margin: 10px;
+        }
+.form ul li   a {
+            color: #02c;
+          }
+.form em {
+            grid-column: span 2;
+            text-align: center;
+            padding: 5px;
+          }
+.form label {
+             margin-left: 450px;
+            text-align: left;
+            padding-bottom: 2px;
+          }
+.form input {
+    margin-left: 450px;
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+button {
+    margin: 5px 10px;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+.account{
+    background-color: rgb(204, 202, 202);
+}
+button:hover{
+    background-color: #eef;
+    border: 1px solid #aaf;
+}
