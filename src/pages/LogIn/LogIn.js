@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './LogIn.css'
 
 const LogIn = () => {
-    const { loginUser } = useAuth();
+    const { loginUser, signInWithGoogle, authError } = useAuth();
     const [loginData, setLoginData] = useState({});
+
+    const location = useLocation();
+    const history = useHistory();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -17,8 +20,12 @@ const LogIn = () => {
     }
 
     const handleLogIn = e => {
-        loginUser(loginData.email, loginData.password)
+        loginUser(loginData.email, loginData.password, location, history)
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(location, history);
     }
 
     return (
@@ -43,10 +50,9 @@ const LogIn = () => {
                 <div>
                     <button>Submit</button>
                     <p>New User?
-                        <Link to="/register">
-                            <button className="account" type="button">Create Account Here...</button>
-                        </Link>
+                        <Link to="/register" style={{ textDecoration: "none" }}> Create Account Here... </Link>
                     </p>
+                    <button onClick={handleGoogleSignIn}>Google Sign In</button>
                 </div>
             </form>
         </div>

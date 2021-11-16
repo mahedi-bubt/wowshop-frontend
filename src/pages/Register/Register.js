@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { Alert } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Alert, Spinner } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Register.css'
 
 const Register = () => {
-    const { registerUser, updateUserDetails } = useAuth();
+    const { user, registerUser, isLoading } = useAuth();
     const [registerData, setRegisterData] = useState({});
     const [error, setError] = useState('');
 
-    /* const location = useLocation();
     const history = useHistory();
 
-    const redirect_url = location?.state?.from || '/home'; */
-    const handleOnChange = e => {
+    /* const redirect_url = location?.state?.from || '/home'; */
+
+    const handleonBlur = e => {
         const field = e.target.name;
         const value = e.target.value;
         const newRegisterData = { ...registerData };
@@ -27,62 +27,56 @@ const Register = () => {
             alert('Password doesnot match');
             return;
         } else {
-            registerUser(registerData.email, registerData.password);
-            updateUserName();
+            registerUser(registerData.email, registerData.password, registerData.name, history);
         }
 
-        /* createUser(email, password)
-            .then(result => {
-                
-            }).catch(err => {
-                setError(err);
-            });
-        updateUserName(); */
         e.preventDefault();
-    }
-    //user displayname update
-    const updateUserName = () => {
-        updateUserDetails(registerData.username)
-            .then(result => {
-                console.log(result);
-            }).catch((error) => {
-
-            });
     }
 
     return (
         <div className=" form App">
             {error && <Alert variant="danger">{error}</Alert>}
-            <form onSubmit={handleRegistration}>
+            {!isLoading && <form onSubmit={handleRegistration}>
                 <h2>Sign Up!</h2>
                 <fieldset>
                     <legend>Create Account</legend>
                     <ul>
                         <li>
                             <label htmlFor="username">Username:</label>
-                            <input type="text" onChange={handleOnChange} id="username" name="username" required />
+                            <input type="text" onBlur={handleonBlur} id="username" name="name" required />
                         </li>
                         <li>
                             <label htmlFor="email">Email:</label>
-                            <input onChange={handleOnChange} type="email" id="email" name="email" required />
+                            <input onBlur={handleonBlur} type="email" id="email" name="email" required />
                         </li>
                         <li>
                             <label htmlFor="password">Password:</label>
-                            <input onChange={handleOnChange} type="password" id="password" name="password" required />
+                            <input onBlur={handleonBlur} type="password" id="password" name="password" required />
                         </li>
                         <li>
                             <label htmlFor="password">Confirm-Password:</label>
-                            <input onChange={handleOnChange} type="password" id="confirmpassword" name="confirmpassword" required />
+                            <input onBlur={handleonBlur} type="password" id="confirmpassword" name="confirmpassword" required />
                         </li>
                     </ul>
                 </fieldset>
                 <div>
-                    <button>Submit</button>
+                    <button>Register</button>
                     <Link to="/login">
                         <button className="account" type="button">Have an Account?</button>
                     </Link>
                 </div>
-            </form>
+            </form>}
+            {isLoading &&
+                <Spinner style={{ margin: "auto" }} animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </Spinner>
+            }
+            {
+                user?.email &&
+                <Alert variant="success">
+                    Registration Successful
+                </Alert>
+            }
         </div>
     );
 };

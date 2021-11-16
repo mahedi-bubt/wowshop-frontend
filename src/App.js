@@ -6,6 +6,7 @@ import Register from './pages/Register/Register';
 import AuthProvider from './context/AuthProvider';
 import Navigation from './pages/shared/Navigation/Navigation';
 import LogIn from './pages/LogIn/LogIn';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -14,8 +15,11 @@ function App() {
         <Router>
           <Navigation></Navigation>
           <Switch>
-            <Route exact path="/">
+            {/* <Route exact path="/">
               <Home></Home>
+            </Route> */}
+            <Route path="/dashboard">
+              <Dashboard></Dashboard>
             </Route>
             <Route path="/home">
               <Home></Home>

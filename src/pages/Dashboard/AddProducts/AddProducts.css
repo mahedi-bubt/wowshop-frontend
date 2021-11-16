@@ -1,0 +1,13 @@
+
+.add-products form, h2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add-products form input, textarea{
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 40%;
+    margin-bottom: 10px;
+}
