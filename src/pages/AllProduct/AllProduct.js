@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Card, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const AllProduct = ({ singleProduct }) => {
 
@@ -14,9 +15,9 @@ const AllProduct = ({ singleProduct }) => {
                         <Card.Text className="text-center"> {brandname}</Card.Text>
                         <Card.Text className="text-center">Price: {price}</Card.Text>
                         <Card.Text className="text-center"> {description}</Card.Text>
-                        {/* <Link to={`/orderplaced/${singleProduct?._id}`}>
+                        <Link to={`/orderplaced/${singleProduct?._id}`}>
                             <Button variant="outline-dark">Book Now</Button>
-                        </Link> */}
+                        </Link>
                     </Card.Body>
                 </Card>
             </Col>

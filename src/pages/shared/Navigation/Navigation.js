@@ -3,7 +3,6 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
-import Dashboard from '../../Dashboard/Dashboard/Dashboard';
 
 const Navigation = () => {
 
@@ -27,6 +26,9 @@ const Navigation = () => {
                                     <Link className="nav-link" to="/about">About</Link>
                                     <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
                                 </Nav>}
+                        {user?.email &&
+                            <Link className="nav-link" to="/myorders" style={{ color: "white" }}>My Orders</Link>
+                        }
                         {
                             user?.email ?
                                 <Link to="/home">
@@ -37,7 +39,7 @@ const Navigation = () => {
                                     <button className="btn btn-dark">LogIn</button>
                                 </Link>
                         }
-                        <span className="nav-link">{user?.displayName}</span>
+                        <span className="nav-link" style={{ color: "white" }}>{user?.displayName}</span>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

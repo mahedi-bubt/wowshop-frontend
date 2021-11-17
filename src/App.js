@@ -7,8 +7,10 @@ import AuthProvider from './context/AuthProvider';
 import Navigation from './pages/shared/Navigation/Navigation';
 import LogIn from './pages/LogIn/LogIn';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
-import Products from './pages/Home/Products/Products';
 import AllProducts from './pages/AllProducts/AllProducts';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
+import MyOrders from './pages/MyOrders/MyOrders';
 
 function App() {
   return (
@@ -35,6 +37,12 @@ function App() {
             <Route path="/allproducts">
               <AllProducts></AllProducts>
             </Route>
+            <Route path="/myorders">
+              <MyOrders></MyOrders>
+            </Route>
+            <PrivateRoute path="/placeorder/:orderId">
+              <PlaceOrder></PlaceOrder>
+            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>
