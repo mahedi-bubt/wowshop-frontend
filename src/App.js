@@ -7,6 +7,8 @@ import AuthProvider from './context/AuthProvider';
 import Navigation from './pages/shared/Navigation/Navigation';
 import LogIn from './pages/LogIn/LogIn';
 import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import Products from './pages/Home/Products/Products';
+import AllProducts from './pages/AllProducts/AllProducts';
 
 function App() {
   return (
@@ -15,9 +17,9 @@ function App() {
         <Router>
           <Navigation></Navigation>
           <Switch>
-            {/* <Route exact path="/">
+            <Route exact path="/">
               <Home></Home>
-            </Route> */}
+            </Route>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
             </Route>
@@ -29,6 +31,9 @@ function App() {
             </Route>
             <Route path="/login">
               <LogIn></LogIn>
+            </Route>
+            <Route path="/allproducts">
+              <AllProducts></AllProducts>
             </Route>
           </Switch>
         </Router>

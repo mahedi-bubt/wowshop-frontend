@@ -18,21 +18,21 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     Link,
-    useParams,
     useRouteMatch
 } from "react-router-dom";
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../AddProducts/AddProducts';
+import useAuth from '../../../hooks/useAuth';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const { admin, logOut } = useAuth();
 
     let { path, url } = useRouteMatch();
 
@@ -44,7 +44,6 @@ function Dashboard(props) {
         <div>
             <Toolbar />
             <Divider />
-
             <Stack direction="column"
                 justifyContent="center"
                 alignItems="center"
@@ -52,6 +51,9 @@ function Dashboard(props) {
                 <Link to={`${url}/makeadmin`}><Button >Make Admin</Button></Link>
                 <Link to={`${url}/addproducts`} ><Button >Add Products</Button></Link>
                 <Link to={`${url}/manageallorders`} ><Button >Manage All Orders</Button></Link>
+                <Link to="/home">
+                    <Button onClick={logOut}>SignOut</Button>
+                </Link>
             </Stack>
         </div>
     );

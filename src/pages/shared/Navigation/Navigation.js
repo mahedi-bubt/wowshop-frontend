@@ -3,10 +3,11 @@ import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import useAuth from '../../../hooks/useAuth';
+import Dashboard from '../../Dashboard/Dashboard/Dashboard';
 
 const Navigation = () => {
 
-    const { user, logOut } = useAuth();
+    const { user, logOut, admin } = useAuth();
 
     return (
         <>
@@ -15,13 +16,17 @@ const Navigation = () => {
                     <Navbar.Brand href="#home">WOW-SHOP</Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                        <Nav className="ms-auto navbar-link">
-                            <HashLink className="nav-link" to="/home#home">Home</HashLink>
-                            <HashLink className="nav-link" to="/home#products">Products</HashLink>
-                            <Link className="nav-link" to="/about">About</Link>
-                            <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
-                        </Nav>
-
+                        {
+                            admin ?
+                                <Nav className="ms-auto navbar-link">
+                                    <Link className="nav-link" to="/dashboard">Admin Dashboard</Link>
+                                </Nav>
+                                : <Nav className="ms-auto navbar-link">
+                                    <HashLink className="nav-link" to="/home#home">Home</HashLink>
+                                    <HashLink className="nav-link" to="/allproducts">Products</HashLink>
+                                    <Link className="nav-link" to="/about">About</Link>
+                                    <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
+                                </Nav>}
                         {
                             user?.email ?
                                 <Link to="/home">

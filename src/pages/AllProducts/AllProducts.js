@@ -1,8 +1,9 @@
+import React from 'react';
 import { Container, Row } from 'react-bootstrap';
-import useProducts from '../../../hooks/useProducts';
-import Product from '../Product/Product';
+import useProducts from '../../hooks/useProducts';
+import AllProduct from '../AllProduct/AllProduct';
 
-const Products = () => {
+const AllProducts = ({ singleProduct }) => {
     const [allProducts] = useProducts();
 
     const style = {
@@ -19,18 +20,19 @@ const Products = () => {
         }
     }
     return (
+
         <div id="products">
             <Container style={style.services_container}>
                 <div style={style.servicesTop}>
-                    <h2 className="text-primary text-center">Our Products</h2>
+                    <h2 className="text-primary text-center">All Products</h2>
                     <hr style={style.hr} />
                 </div>
                 <Row xs={1} md={3} className="g-4">
                     {
-                        allProducts.map(p => <Product
+                        allProducts.map(p => <AllProduct
                             key={p.name}
                             singleProduct={p}
-                        ></Product>).slice(0, 6)
+                        ></AllProduct>)
                     }
                 </Row>
             </Container>
@@ -38,4 +40,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default AllProducts;
