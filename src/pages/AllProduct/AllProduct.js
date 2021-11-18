@@ -15,7 +15,7 @@ const AllProduct = ({ singleProduct }) => {
                         <Card.Text className="text-center"> {brandname}</Card.Text>
                         <Card.Text className="text-center">Price: {price}</Card.Text>
                         <Card.Text className="text-center"> {description}</Card.Text>
-                        <Link to={`/orderplaced/${singleProduct?._id}`}>
+                        <Link to={`/placeorder/${singleProduct?._id}`}>
                             <Button variant="outline-dark">Book Now</Button>
                         </Link>
                     </Card.Body>

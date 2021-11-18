@@ -21,14 +21,19 @@ const Navigation = () => {
                                     <Link className="nav-link" to="/dashboard">Admin Dashboard</Link>
                                 </Nav>
                                 : <Nav className="ms-auto navbar-link">
-                                    <HashLink className="nav-link" to="/home#home">Home</HashLink>
-                                    <HashLink className="nav-link" to="/allproducts">Products</HashLink>
-                                    <Link className="nav-link" to="/about">About</Link>
-                                    <HashLink className="nav-link" to="/home#contact">Contact</HashLink>
+                                    <HashLink className="nav-link" to="/home#home" style={{ color: "white" }}>Home</HashLink>
+                                    <HashLink className="nav-link" to="/allproducts" style={{ color: "white" }}>Products</HashLink>
+                                    <Link className="nav-link" to="/about" style={{ color: "white" }}>About</Link>
+                                    {
+                                        user?.email &&
+                                        <Nav className="ms-auto navbar-link">
+                                            <Link className="nav-link" to="/myorders" style={{ color: "white" }}>My Orders</Link>
+                                            <Link className="nav-link" to="/review" style={{ color: "white" }}>Review</Link>
+                                            <Link className="nav-link" to="/payment" style={{ color: "white" }}>Pay</Link>
+                                        </Nav>
+                                    }
+                                    <HashLink className="nav-link" to="/home#contact" style={{ color: "white" }}>Contact</HashLink>
                                 </Nav>}
-                        {user?.email &&
-                            <Link className="nav-link" to="/myorders" style={{ color: "white" }}>My Orders</Link>
-                        }
                         {
                             user?.email ?
                                 <Link to="/home">
