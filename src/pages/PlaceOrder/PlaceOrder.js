@@ -14,14 +14,14 @@ const PlaceOrder = () => {
     /* console.log(orderId); */
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${orderId}`)
+        fetch(`https://calm-garden-39470.herokuapp.com/products/${orderId}`)
             .then(res => res.json())
             .then(data => setProductData(data));
     }, [])
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/placeorder', data)
+        axios.post('https://calm-garden-39470.herokuapp.com/placeorder', data)
             .then(res => {
                 if (res?.data?.insertedId) {
                     alert('Order Placed Succesfully');

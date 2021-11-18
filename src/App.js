@@ -13,6 +13,7 @@ import PrivateRoute from './pages/PrivateRoute/PrivateRoute';
 import MyOrders from './pages/MyOrders/MyOrders';
 import Payments from './pages/Payments/Payments';
 import Review from './pages/Review/Review';
+import NotFound from './pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
             <PrivateRoute path="/placeorder/:orderId">
               <PlaceOrder></PlaceOrder>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

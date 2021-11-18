@@ -4,7 +4,7 @@ const usePlaceOrders = () => {
     const [placeorder, setPlaceOrder] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/placeorder')
+        fetch('https://calm-garden-39470.herokuapp.com/placeorder')
             .then(res => res.json())
             .then(data => setPlaceOrder(data));
     }, [])

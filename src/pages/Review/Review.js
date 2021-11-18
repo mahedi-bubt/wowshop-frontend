@@ -9,7 +9,7 @@ const Review = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/reviews', data)
+        axios.post('https://calm-garden-39470.herokuapp.com/reviews', data)
             .then(res => {
                 if (res?.data?.insertedId) {
                     alert('Order Placed Succesfully');

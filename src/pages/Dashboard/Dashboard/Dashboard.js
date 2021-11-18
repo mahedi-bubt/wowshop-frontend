@@ -6,12 +6,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -27,13 +21,14 @@ import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddProducts from '../AddProducts/AddProducts';
 import useAuth from '../../../hooks/useAuth';
 import ManageAllOrders from '../ManageAllOrders/ManageAllOrders';
+import ManageProducts from '../ManageProducts/ManageProducts';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
-    const { admin, logOut } = useAuth();
+    const { logOut } = useAuth();
 
     let { path, url } = useRouteMatch();
 
@@ -52,6 +47,7 @@ function Dashboard(props) {
                 <Link to={`${url}/makeadmin`}><Button >Make Admin</Button></Link>
                 <Link to={`${url}/addproducts`} ><Button >Add Products</Button></Link>
                 <Link to={`${url}/manageallorders`} ><Button >Manage All Orders</Button></Link>
+                <Link to={`${url}/manageproducts`} ><Button >Manage Products</Button></Link>
                 <Link to="/home">
                     <Button onClick={logOut}>SignOut</Button>
                 </Link>
@@ -138,9 +134,10 @@ function Dashboard(props) {
                     <Route path={`${path}/manageallorders`}>
                         <ManageAllOrders></ManageAllOrders>
                     </Route>
+                    <Route path={`${path}/manageproducts`}>
+                        <ManageProducts></ManageProducts>
+                    </Route>
                 </Switch>
-
-
             </Box>
         </Box>
     );

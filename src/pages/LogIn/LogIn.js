@@ -4,7 +4,7 @@ import useAuth from '../../hooks/useAuth';
 import './LogIn.css'
 
 const LogIn = () => {
-    const { loginUser, signInWithGoogle, authError } = useAuth();
+    const { loginUser, signInWithGoogle } = useAuth();
     const [loginData, setLoginData] = useState({});
 
     const location = useLocation();

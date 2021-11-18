@@ -8,8 +8,9 @@ const MakeAdmin = () => {
     }
 
     const handleAdminSubmit = (e) => {
+        e.preventDefault();
         const user = { email };
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://calm-garden-39470.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -20,7 +21,9 @@ const MakeAdmin = () => {
             .then(data => {
                 /* console.log(data); */
             })
-        e.preventDefault();
+        alert("Admin addes Succesfully");
+
+        /* e.preventDefault(); */
     }
     return (
         <div className="add-products">

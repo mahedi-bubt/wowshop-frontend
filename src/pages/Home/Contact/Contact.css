@@ -1,0 +1,21 @@
+.contact{
+    margin: 150px 0;
+}
+.first-row{
+    margin-top: 20px ;
+    margin-bottom: 20px ;
+}
+.second-row{
+    margin-bottom: 20px;
+}
+.send-btn{
+    margin-top: 15px;
+}
+.contact-title{
+    padding: 25px 0;
+    margin: 80px 0;
+    background-color: #212529;
+}
+.contact-title h2{
+    color: white;
+}

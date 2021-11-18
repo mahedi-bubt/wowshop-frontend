@@ -6,7 +6,7 @@ const ManageAllOrders = () => {
     const [allOrders] = usePlaceOrders();
 
     const handleDelete = id => {
-        const url = `http://localhost:5000/placeorder/${id}`;
+        const url = `https://calm-garden-39470.herokuapp.com/placeorder/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
