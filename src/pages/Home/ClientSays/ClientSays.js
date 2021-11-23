@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Row } from 'react-bootstrap';
+import StarRatings from 'react-star-ratings';
 
 const ClientSays = () => {
     const [reviewdata, setReviewData] = useState([]);
@@ -21,7 +22,14 @@ const ClientSays = () => {
                             <Card border="dark" style={{ width: '18rem' }}>
                                 <Card.Header>{review.personname}</Card.Header>
                                 <Card.Body>
-                                    <Card.Title>Rating: {review.rating} </Card.Title>
+                                    <Card.Title>
+                                        <StarRatings
+                                            rating={Number(review.rating)}
+                                            starRatedColor="black"
+                                            starDimension="30px"
+                                            starSpacing="5px"
+                                        />
+                                    </Card.Title>
                                     <Card.Text>{review.comment}</Card.Text>
                                 </Card.Body>
                             </Card>
